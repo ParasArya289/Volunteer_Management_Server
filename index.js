@@ -1,14 +1,14 @@
 const express = require("express");
 const cors = require("cors");
 const volunteerManagament = require("./Routers/volunteer.router.js")
-// const salesRouter = require("./Routers/sale.router.js")
+const eventRouter = require("./Routers/event.router.js")
 require("./mongodb")
 
 const app = express();
 app.use(cors());
 app.use(express.json())
 app.use("/volunteer", volunteerManagament)
-// app.use("/sale", salesRouter)
+app.use("/event", eventRouter)
 
 app.get("/", (req, res) => {
   res.send("Volunteer Management")
